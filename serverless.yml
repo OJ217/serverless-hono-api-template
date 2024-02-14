@@ -1,0 +1,48 @@
+service: serverless-hono-api
+
+frameworkVersion: '3'
+
+custom:
+    defaultStage: local
+    stage: ${opt:stage, self:custom.defaultStage}
+    dotenv:
+        path: .env/.env.${self:custom.stage}
+    esbuild:
+        minify: true
+        bundle: true
+        treeShaking: true
+        watch:
+            pattern: ['src/**/*.ts']
+    serverless-offline:
+        host: '0.0.0.0'
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    memorySize: 1024
+    timeout: 20
+    stage: ${self:custom.stage}
+    profile: serverless-admin
+    region: ap-southeast-1
+
+functions:
+    public-endpoint:
+        handler: ./src/handlers/public.publicEndpointHandler
+        events:
+            - httpApi:
+                  path: /{proxy+}
+                  method: ANY
+    private-endpoint:
+        handler: ./src/handlers/private.privateEndpointHandler
+        events:
+            - httpApi:
+                  path: /api/{proxy+}
+                  method: ANY
+
+package:
+    individually: true
+
+plugins:
+    - serverless-esbuild
+    - serverless-offline
+    - serverless-dotenv-plugin

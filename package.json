@@ -1,0 +1,30 @@
+{
+	"name": "serverless_hono_api",
+	"version": "1.0.0",
+	"description": "AWS Lambda and Hono JS project starter template for serverless framework",
+	"keywords": [
+		"aws-lambda",
+		"typescript",
+		"serverless",
+		"hono"
+	],
+	"author": "Ochirjav Jargalsaikhan",
+	"license": "MIT",
+	"scripts": {
+		"dev": "serverless offline start --verbose --httpPort 5000",
+		"deploy-dev": "serverless deploy --stage dev",
+		"deploy-prod": "serverless deploy --stage prod"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.17",
+		"esbuild": "^0.17.19",
+		"serverless": "^3.35.2",
+		"serverless-dotenv-plugin": "^6.0.0",
+		"serverless-esbuild": "^1.48.5",
+		"serverless-offline": "^13.2.0"
+	},
+	"dependencies": {
+		"hono": "^3.12.6",
+		"zod": "^3.22.4"
+	}
+}

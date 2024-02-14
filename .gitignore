@@ -1,0 +1,7 @@
+node_modules
+dist
+lambda.zip
+.yarn
+.env
+.serverless
+.esbuild

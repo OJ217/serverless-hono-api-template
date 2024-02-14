@@ -1,0 +1,17 @@
+{
+	"files.exclude": {
+		"node_modules": true,
+		".esbuild": true,
+		".serverless": true
+	},
+
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+
+	"importSorter.importStringConfiguration.tabSize": 2,
+	"importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+	"importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 200,
+	"importSorter.sortConfiguration.removeUnusedImports": true,
+	"importSorter.sortConfiguration.removeUnusedDefaultImports": true,
+	"importSorter.generalConfiguration.sortOnBeforeSave": true
+}
