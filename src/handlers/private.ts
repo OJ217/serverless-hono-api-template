@@ -19,7 +19,7 @@ app.use('*', logger());
 app.use('*', poweredBy());
 app.use('*', secureHeaders());
 app.use('*', compress({ encoding: 'gzip' }));
-app.use('*', csrf({ origin: ['http://localhost:3000', 'https://music-lab-next.vercel.app', 'https://www.music-lab.app'] }));
+app.use('*', csrf({ origin: ['*'] }));
 app.use('*', cors({ credentials: true, origin: ['*'] }));
 app.use('*', setUpLambda);
 
